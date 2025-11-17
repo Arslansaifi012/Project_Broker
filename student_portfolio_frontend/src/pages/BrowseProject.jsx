@@ -1,96 +1,14 @@
 
 // src/pages/BrowseProjects.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import {ShopContext} from '../context/ShopContext';
 
 const BrowseProjects = () => {
-  const [projects] = useState([
-    {
-      id: 1,
-      title: 'AI Chatbot',
-      description: 'An intelligent chatbot built with Python and TensorFlow',
-      price: '$500',
-      category: 'ai',
-      technologies: 'Python, TensorFlow, NLTK',
-      student: 'John Doe',
-      university: 'MIT',
-      image: assets.AI_Chatbots,
-      views: 45,
-      likes: 12,
-      rating: 4.5,
-    },
-    {
-      id: 2,
-      title: 'E-commerce App',
-      description: 'Full-stack e-commerce application with React and Node.js',
-      price: '$1200',
-      category: 'web',
-      technologies: 'React, Node.js, MongoDB',
-      student: 'Jane Smith',
-      university: 'Stanford',
-      image: assets.Ecommerce,
-      views: 89,
-      likes: 23,
-      rating: 4.8,
-    },
-    {
-      id: 3,
-      title: 'Mobile Game',
-      description: 'Unity-based mobile game with multiplayer features',
-      price: '$800',
-      category: 'game',
-      technologies: 'Unity, C#, Photon',
-      student: 'Mike Johnson',
-      university: 'UC Berkeley',
-      image: assets.Mobile_Gaming,
-      views: 34,
-      likes: 8,
-      rating: 4.2,
-    },
-    {
-      id: 4,
-      title: 'Blockchain Wallet',
-      description: 'Secure cryptocurrency wallet with multi-chain support',
-      price: '$1500',
-      category: 'blockchain',
-      technologies: 'Web3.js, Solidity, React',
-      student: 'Sarah Wilson',
-      university: 'Harvard',
-      image: assets.Blockchain,
-      views: 67,
-      likes: 18,
-      rating: 4.7,
-    },
-    {
-      id: 5,
-      title: 'IoT Dashboard',
-      description: 'Real-time IoT device monitoring dashboard',
-      price: '$700',
-      category: 'iot',
-      technologies: 'React, MQTT, Node-RED',
-      student: 'David Brown',
-      university: 'Carnegie Mellon',
-      image: assets.AnalyticsDashboards,
-      views: 52,
-      likes: 14,
-      rating: 4.3,
-    },
-    {
-      id: 6,
-      title: 'ML Trading Bot',
-      description: 'Machine learning powered cryptocurrency trading bot',
-      price: '$2000',
-      category: 'ai',
-      technologies: 'Python, TensorFlow, Binance API',
-      student: 'Lisa Chen',
-      university: 'Caltech',
-      image: assets.TradingBot ,
-      views: 91,
-      likes: 27,
-      rating: 4.9,
-    },
-  ]);
+  const {products} = useContext(ShopContext) ;
+  console.log(products)
+  const [projects] = useState([]);
 
   const [filters, setFilters] = useState({
     category: '',
